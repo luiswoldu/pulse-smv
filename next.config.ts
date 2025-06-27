@@ -1,16 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: 'out',
-  // Only use static export and basePath for production builds
-  ...(process.env.NODE_ENV === 'production' && {
-    output: 'export',
-    basePath: '/pulse-smv',
-    assetPrefix: '/pulse-smv',
-    trailingSlash: true,
-  }),
-  images: {
-    unoptimized: true,
-  },
+  // Basic config optimized for Vercel deployment
+  // Removed static export settings that were needed for GitHub Pages
 }
+
 module.exports = nextConfig
 
