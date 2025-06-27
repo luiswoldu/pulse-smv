@@ -3,13 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "dev:fast": "next dev --turbopack --port 3000",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit",
-    "prepare-deploy": "rm -rf docs && npm run build && mv out docs"
+    "export": "next build",
+    "deploy": "npm run build && gh-pages -d out -b gh-pages"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
