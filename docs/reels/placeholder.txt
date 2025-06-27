@@ -1,0 +1,2 @@
+This directory contains reel thumbnail images.
+Please replace reel1.jpg through reel5.jpg with actual 9:16 aspect ratio images. 
