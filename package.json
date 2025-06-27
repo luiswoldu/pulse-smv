@@ -9,8 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out -b main"
+    "prepare-deploy": "rm -rf docs && npm run build && mv out docs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
