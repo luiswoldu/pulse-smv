@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pulse SMV - Social Media Metrics Dashboard",
-  description: "A sleek, card-based dashboard prototype showcasing social media metrics in a visually engaging way.",
+  title: "PI MTRX",
+  description: "A sleek, card-based dashboard prototype showcasing metrics in a visually engaging way.",
 };
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -58,7 +58,7 @@ export function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-white p-6">
+    <div className="min-h-screen bg-background p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header with Search */}
         <div className="flex justify-between items-start mb-4">
@@ -67,8 +67,7 @@ export function Dashboard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Pulse SMV</h1>
-            <p className="text-lg text-gray-600">Social Media Metrics Dashboard</p>
+            <h1 className="text-4xl font-bold text-foreground mb-2">PI MTRX</h1>
           </motion.div>
           
           <SearchBar 
@@ -104,52 +103,23 @@ export function Dashboard() {
 
         {/* Dashboard Grid */}
         <div className="space-y-6">
-          {/* Row 1 - Three Small Cards */}
+          {/* Row 1 - Large Card (Engagement Trends) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center"
+            className="grid grid-cols-1"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <SmallCard
-                title="Total Followers"
-                value={125847}
-                change={12.5}
+              <LargeCard
+                title="Engagement Trends"
+                subtitle="7-day performance overview"
                 isLoading={isLoading}
-                onClick={() => handleCardClick('Total Followers')}
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <SmallCard
-                title="Engagement Rate"
-                value="4.2%"
-                change={-2.1}
-                isLoading={isLoading}
-                onClick={() => handleCardClick('Engagement Rate')}
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <SmallCard
-                title="Monthly Reach"
-                value={2456789}
-                change={8.7}
-                isLoading={isLoading}
-                onClick={() => handleCardClick('Monthly Reach')}
+                onClick={() => handleCardClick('Engagement Trends')}
               />
             </motion.div>
           </motion.div>
@@ -200,19 +170,54 @@ export function Dashboard() {
             </motion.div>
           </motion.div>
 
-          {/* Row 3 - One Large Card */}
+          {/* Row 3 - Three Small Cards */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="grid grid-cols-1 lg:grid-cols-3 gap-6"
           >
-            <LargeCard
-              title="Engagement Trends"
-              subtitle="7-day performance overview"
-              isLoading={isLoading}
-              onClick={() => handleCardClick('Engagement Trends')}
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <SmallCard
+                title="Total Followers"
+                value={125847}
+                change={12.5}
+                isLoading={isLoading}
+                onClick={() => handleCardClick('Total Followers')}
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <SmallCard
+                title="Engagement Rate"
+                value="4.2%"
+                change={-2.1}
+                isLoading={isLoading}
+                onClick={() => handleCardClick('Engagement Rate')}
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+            >
+              <SmallCard
+                title="Monthly Reach"
+                value={2456789}
+                change={8.7}
+                isLoading={isLoading}
+                onClick={() => handleCardClick('Monthly Reach')}
+              />
+            </motion.div>
           </motion.div>
 
           {/* Row 4 - Two Medium Cards */}

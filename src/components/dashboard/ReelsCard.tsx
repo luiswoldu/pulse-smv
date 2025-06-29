@@ -70,12 +70,12 @@ export function ReelsCard({ title, reels, isLoading = false, onClick, className 
     >
       <CardContent className="p-4 h-full flex flex-col">
         <div className="flex justify-between items-start mb-4">
-          <p className="text-sm text-gray-600 font-medium">{title}</p>
+          <p className="text-sm text-muted-foreground font-medium">{title}</p>
           <motion.div
             whileHover={{ x: 2 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
-            <ChevronRight className="h-6 w-6 text-gray-400" />
+            <ChevronRight className="h-6 w-6 text-muted-foreground" />
           </motion.div>
         </div>
         

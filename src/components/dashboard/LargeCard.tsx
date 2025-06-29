@@ -214,16 +214,16 @@ const TrendChart = () => {
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.9 }}
-            className="absolute bg-white rounded-lg shadow-lg border p-3 text-sm transform -translate-x-1/2 pointer-events-none z-10"
+            className="absolute bg-popover rounded-lg shadow-lg border p-3 text-sm transform -translate-x-1/2 pointer-events-none z-10"
             style={{
               left: `${(hoveredPoint.x / width) * 100}%`,
               top: hoveredPoint.y - 60
             }}
           >
-            <div className="font-semibold text-gray-900">
+            <div className="font-semibold text-popover-foreground">
               ${hoveredPoint.cpa.toFixed(2)} CPA
             </div>
-            <div className="text-gray-500 text-xs">
+            <div className="text-muted-foreground text-xs">
               {hoveredPoint.date}
             </div>
           </motion.div>
@@ -236,14 +236,20 @@ const TrendChart = () => {
 export function LargeCard({ title, subtitle, isLoading = false, onClick, className = "" }: LargeCardProps) {
   if (isLoading) {
     return (
-      <Card className={`w-[1244px] h-[242px] pulse-card-bg rounded-2xl border-0 shadow-sm ${className}`}>
+      <Card className={`h-[242px] pulse-card-bg rounded-2xl border-0 shadow-sm ${className}`}>
         <CardContent className="p-4 h-full flex flex-col">
           <div className="flex justify-between items-start mb-4">
             <div className="space-y-2">
               <Skeleton className="h-4 w-48 shimmer" />
               <Skeleton className="h-3 w-32 shimmer" />
             </div>
-            <Skeleton className="h-6 w-6 rounded shimmer" />
+            <div className="flex items-center gap-3">
+              <div className="text-right space-y-1">
+                <Skeleton className="h-6 w-16 shimmer" />
+                <Skeleton className="h-4 w-12 shimmer" />
+              </div>
+              <Skeleton className="h-6 w-6 rounded shimmer" />
+            </div>
           </div>
           <div className="flex-1 flex items-center justify-center">
             <div className="w-full h-32 shimmer rounded-lg"></div>
@@ -255,12 +261,12 @@ export function LargeCard({ title, subtitle, isLoading = false, onClick, classNa
 
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.01 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className={className}
+      className={`${className} origin-center`}
     >
       <Card 
-        className="w-[1244px] h-[242px] pulse-card-bg rounded-2xl border-0 shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+        className="h-[242px] pulse-card-bg rounded-2xl border-0 shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer w-full"
         onClick={onClick}
       >
         <CardContent className="p-4 h-full flex flex-col">
@@ -268,18 +274,25 @@ export function LargeCard({ title, subtitle, isLoading = false, onClick, classNa
             <div className="flex items-center gap-2">
               <ShimmeringCoin />
               <div>
-                <p className="text-sm text-gray-600 font-medium mb-1">{title}</p>
+                <p className="text-sm text-muted-foreground font-medium mb-1">{title}</p>
                 {subtitle && (
-                  <p className="text-xs text-gray-500">{subtitle}</p>
+                  <p className="text-xs text-muted-foreground">{subtitle}</p>
                 )}
               </div>
             </div>
-            <motion.div
-              whileHover={{ x: 2 }}
-              transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            >
-              <ChevronRight className="h-6 w-6 text-gray-400" />
-            </motion.div>
+            <div className="flex items-center gap-3">
+              {/* Cash Indicator */}
+              <div className="text-right">
+                <div className="text-2xl font-bold text-foreground">214.29</div>
+                <div className="text-sm font-medium text-chart-1">+29.28</div>
+              </div>
+              <motion.div
+                whileHover={{ x: 2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              >
+                <ChevronRight className="h-6 w-6 text-muted-foreground" />
+              </motion.div>
+            </div>
           </div>
           
           <div className="flex-1 flex items-center justify-center">

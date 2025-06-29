@@ -53,9 +53,9 @@ export function MediumCard({ title, value, list, isLoading = false, onClick, cla
 
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className={className}
+      className={`${className} origin-center`}
     >
       <Card 
         className="h-[242px] pulse-card-bg rounded-2xl border-0 shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer w-full"
@@ -64,14 +64,14 @@ export function MediumCard({ title, value, list, isLoading = false, onClick, cla
         <CardContent className="p-4 h-full flex flex-col">
           <div className="flex justify-between items-start mb-4">
             <div>
-              <p className="text-sm text-gray-600 font-medium mb-2">{title}</p>
-              <p className="text-4xl font-bold text-gray-900">{value}</p>
+              <p className="text-sm text-muted-foreground font-medium mb-2">{title}</p>
+              <p className="text-4xl font-bold text-foreground">{value}</p>
             </div>
             <motion.div
               whileHover={{ x: 2 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
             >
-              <ChevronRight className="h-6 w-6 text-gray-400" />
+              <ChevronRight className="h-6 w-6 text-muted-foreground" />
             </motion.div>
           </div>
           
@@ -86,7 +86,7 @@ export function MediumCard({ title, value, list, isLoading = false, onClick, cla
               >
                 <div className="flex items-center gap-3 min-w-0">
                   {item.avatar ? (
-                    <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full overflow-hidden bg-muted flex-shrink-0">
                       <img 
                         src={item.avatar} 
                         alt={item.label}
@@ -100,12 +100,12 @@ export function MediumCard({ title, value, list, isLoading = false, onClick, cla
                       />
                     </div>
                   ) : (
-                    <UserCircle className="w-8 h-8 text-gray-400 flex-shrink-0" />
+                    <UserCircle className="w-8 h-8 text-muted-foreground flex-shrink-0" />
                   )}
-                  <span className="text-sm text-gray-600 truncate">{item.label}</span>
+                  <span className="text-sm text-muted-foreground truncate">{item.label}</span>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
-                  <span className="text-sm font-medium text-gray-900">
+                  <span className="text-sm font-medium text-foreground">
                     {typeof item.value === 'number' ? item.value.toLocaleString() : item.value}
                   </span>
                   {item.comparison && (

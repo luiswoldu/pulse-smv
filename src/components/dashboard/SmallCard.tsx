@@ -19,7 +19,7 @@ export function SmallCard({ title, value, change, isLoading = false, onClick, cl
   
   if (isLoading) {
     return (
-      <Card className={`w-[406px] h-[222px] pulse-card-bg rounded-2xl border-0 shadow-sm ${className}`}>
+      <Card className={`h-[222px] pulse-card-bg rounded-2xl border-0 shadow-sm ${className}`}>
         <CardContent className="p-4 h-full flex flex-col justify-between">
           <div className="flex justify-between items-start">
             <div className="space-y-3">
@@ -39,25 +39,25 @@ export function SmallCard({ title, value, change, isLoading = false, onClick, cl
 
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className={className}
+      className={`${className} origin-center`}
     >
       <Card 
-        className="w-[406px] h-[222px] pulse-card-bg rounded-2xl border-0 shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+        className="h-[222px] pulse-card-bg rounded-2xl border-0 shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer w-full"
         onClick={onClick}
       >
         <CardContent className="p-4 h-full flex flex-col justify-between">
           <div className="flex justify-between items-start">
             <div>
-              <p className="text-sm text-gray-600 font-medium mb-2">{title}</p>
-              <p className="text-4xl font-bold text-gray-900">{value.toLocaleString()}</p>
+              <p className="text-sm text-muted-foreground font-medium mb-2">{title}</p>
+              <p className="text-4xl font-bold text-foreground">{value.toLocaleString()}</p>
             </div>
             <motion.div
               whileHover={{ x: 2 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
             >
-              <ChevronRight className="h-6 w-6 text-gray-400" />
+              <ChevronRight className="h-6 w-6 text-muted-foreground" />
             </motion.div>
           </div>
           

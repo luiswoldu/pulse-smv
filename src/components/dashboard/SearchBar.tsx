@@ -80,13 +80,13 @@ export function SearchBar({ onSearch, onAddCreator, className = "" }: SearchBarP
           <div className="flex items-center px-4 h-[40px] gap-3">
             <Search 
               className={`w-4 h-4 transition-colors ${
-                isFocused ? 'text-gray-900' : 'text-gray-400'
+                isFocused ? 'text-foreground' : 'text-muted-foreground'
               }`}
             />
             <input
               type="text"
               placeholder="Search creators"
-              className="flex-1 bg-transparent border-none outline-none text-sm text-gray-900 placeholder:text-gray-400"
+              className="flex-1 bg-transparent border-none outline-none text-sm text-foreground placeholder:text-muted-foreground"
               value={searchValue}
               onChange={handleSearch}
               onFocus={handleFocus}
@@ -101,7 +101,7 @@ export function SearchBar({ onSearch, onAddCreator, className = "" }: SearchBarP
                 exit={{ opacity: 0 }}
                 className="px-2 pb-2"
               >
-                <div className="text-xs text-gray-500 px-2 py-2">Suggested Creators</div>
+                <div className="text-xs text-muted-foreground px-2 py-2">Suggested Creators</div>
                 <div className="space-y-1">
                   {SUGGESTED_CREATORS.map((creator) => (
                     <motion.div
@@ -109,13 +109,13 @@ export function SearchBar({ onSearch, onAddCreator, className = "" }: SearchBarP
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="flex items-center justify-between p-2 hover:bg-black/5 rounded-lg cursor-pointer group"
+                      className="flex items-center justify-between p-2 hover:bg-accent rounded-lg cursor-pointer group"
                     >
                       <div className="flex items-center gap-3">
-                        <UserCircle className="w-8 h-8 text-gray-400" />
+                        <UserCircle className="w-8 h-8 text-muted-foreground" />
                         <div>
-                          <div className="text-sm font-medium text-gray-900">{creator.name}</div>
-                          <div className="text-xs text-gray-500">
+                          <div className="text-sm font-medium text-foreground">{creator.name}</div>
+                          <div className="text-xs text-muted-foreground">
                             {creator.handle} • {creator.followers} followers
                           </div>
                         </div>
@@ -126,7 +126,7 @@ export function SearchBar({ onSearch, onAddCreator, className = "" }: SearchBarP
                         onClick={() => handleAddToWatchlist(creator)}
                         className="opacity-0 group-hover:opacity-100 transition-opacity"
                       >
-                        <Plus className="w-5 h-5 text-gray-600 hover:text-gray-900" />
+                        <Plus className="w-5 h-5 text-muted-foreground hover:text-foreground" />
                       </motion.button>
                     </motion.div>
                   ))}

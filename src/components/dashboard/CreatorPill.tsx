@@ -18,12 +18,12 @@ export function CreatorPill({ name, onRemove, isActive = true, avatar }: Creator
       exit={{ opacity: 0, scale: 0.95 }}
       className={`
         inline-flex items-center gap-3 px-6 py-4 rounded-full
-        ${isActive ? 'bg-blue-50 border border-blue-100' : 'bg-gray-50 border border-gray-100'}
+        ${isActive ? 'bg-primary/10 border border-primary/20' : 'bg-muted border border-border'}
         transition-colors duration-200
       `}
     >
       {/* Avatar */}
-      <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+      <div className="w-8 h-8 rounded-full overflow-hidden bg-muted flex-shrink-0">
         {avatar ? (
           <img 
             src={avatar} 
@@ -36,14 +36,14 @@ export function CreatorPill({ name, onRemove, isActive = true, avatar }: Creator
             }}
           />
         ) : (
-          <UserCircle className="w-full h-full text-gray-400" />
+          <UserCircle className="w-full h-full text-muted-foreground" />
         )}
       </div>
       
       {/* Creator name */}
       <span className={`
         text-lg font-medium
-        ${isActive ? 'text-blue-700' : 'text-gray-700'}
+        ${isActive ? 'text-primary' : 'text-muted-foreground'}
       `}>
         {name}
       </span>
@@ -53,9 +53,9 @@ export function CreatorPill({ name, onRemove, isActive = true, avatar }: Creator
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={onRemove}
-        className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-blue-100 transition-colors"
+        className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-accent transition-colors"
       >
-        <X className="w-4 h-4 text-blue-600" />
+        <X className="w-4 h-4 text-primary" />
       </motion.button>
     </motion.div>
   );
